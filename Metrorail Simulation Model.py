@@ -38,12 +38,11 @@ class Metrosimulation (object):
         self.defaultime = defaultime
 
     def time(self, train):
-        """The timeing processes. It takes a ``car`` processes and tries
-        to clean it."""
+        """The default time to move from station-to-station is set to zero. Each trip will get it's own time."""
         yield self.env.timeout(DEFAULT)
 
 def train(env, name, tr):
-    """Each train (each one has a ``name``) arrives at the station
+    """Each train (with it's own train``name``) arrives at the station
        and requests access to it.
 
     A train cannot access a station if another train is using it, causing
